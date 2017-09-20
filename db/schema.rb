@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425192835) do
+ActiveRecord::Schema.define(version: 20170918135009) do
 
   create_table "breeds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20170425192835) do
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "pet_id"
-    t.string   "type",                                   null: false
-    t.boolean  "is_around_me",                           null: false
+    t.string   "type",                                                   null: false
+    t.boolean  "is_around_me",                           default: false, null: false
     t.decimal  "longitude",    precision: 15, scale: 12
     t.decimal  "latitude",     precision: 15, scale: 12
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.index ["pet_id"], name: "index_events_on_pet_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
@@ -92,11 +92,12 @@ ActiveRecord::Schema.define(version: 20170425192835) do
   create_table "pets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "group_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "breed_id",    null: false
-    t.integer  "weight_id",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "breed_id",                   null: false
+    t.integer  "weight_id",                  null: false
     t.string   "chip_number"
+    t.boolean  "active",      default: true, null: false
     t.index ["breed_id"], name: "index_pets_on_breed_id", using: :btree
     t.index ["group_id"], name: "index_pets_on_group_id", using: :btree
     t.index ["weight_id"], name: "index_pets_on_weight_id", using: :btree
@@ -107,8 +108,9 @@ ActiveRecord::Schema.define(version: 20170425192835) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "active",          default: true, null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
