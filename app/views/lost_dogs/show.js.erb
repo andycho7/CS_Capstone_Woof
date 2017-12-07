@@ -4,7 +4,11 @@ $('.modal-title').text('Lost dog event')*/
 
 var height_event_section = $("#map").css("height");
 
+//$("#event-section").css("width", 450);
+//console.log($(".event-section"));
+//console.log($(".event-section").width());
 
-$("#event-content").html('<%= escape_javascript(render :partial => 'lost_dogs/show_lost_dog_modal', :object => @lost_dog) %>');
-$("#event-section").css("width", "450px");
-$("#event-section").css("height", height_event_section);
+$(".event-section").width("450");
+$(".event-content").width("420");
+$(".event-section").css("height", height_event_section);
+$(".event-content").html('<%= escape_javascript(render :partial => 'lost_dogs/show_lost_dog_modal', :object => @lost_dog) %>');

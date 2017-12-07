@@ -1,5 +1,5 @@
 <% flash.each do |type, message| %>
-  <% unless type == 'timedout' %>
+  <% unless type == 'timedout' or type == 'signUpError' %>
     <div class="alert <%= bootstrap_class_for(type) %>" role="alert" style='margin-bottom: 0rem;'>
       <button class="close" data-dismiss="alert">×</button>
       <%= raw message %>

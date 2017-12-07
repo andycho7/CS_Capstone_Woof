@@ -389,8 +389,8 @@ function panMap(newLat, newLng)
 function open_event_section()
 {
 
-  $("#event-content").html("This is awesome");
-  $("#event-section").css("width", "450px");
+  $(".event-content").html("This is awesome");
+  $(".event-section").css("width", "450px");
 
 }
 
@@ -524,9 +524,9 @@ $(document).on('turbolinks:load', function() {
 
 function close_event_section()
 {
-  $("#event-content").html("");
-  $("#event-section").css("width", "0px");
-  $("#event-section").css("height", "0px");
+  $(".event-content").html("");
+  $(".event-section").css("width", "0px");
+  $(".event-section").css("height", "0px");
 }
 
 

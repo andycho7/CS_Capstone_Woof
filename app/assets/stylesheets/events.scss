@@ -34,15 +34,22 @@
 }
 
 /* The top attribute pixels is set by trail and error because the font-awesome height is not known. */
-#event-section{
+.event-section{
   background-color: #F8F8F8;
   width: 0px;
   height: 0px; /* This has been set dynamically */
   position: absolute;
   z-index: 1; /* Stay on top */
   /* The below needs to change */
-  top: 50px;
+  top: 80px;
   right: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.event-content{
+  margin-right: 20px;
+  margin-left: 6px;
+  margin-top: 6px;
+  padding-right: 10px;
 }
