@@ -2,12 +2,19 @@
 
 $('#eventModal').modal('show')
 $('.modal-title').text('Editing the around me event')*/
+
+var height_event_section = $("#map").css("height");
+
+$(".event-section").width("450px");
+$(".event-content").width("420");
+$(".event-section").css("height", height_event_section);
+
 <% locals = {post_event: @post_event, path: post_event_path(@post_event.id), button_name: "Update the Around Me Event"} %>
-$("#event-content").html('<%= escape_javascript(render :partial => 'post_events/form', locals: locals ) %>');
+$(".event-content").html('<%= escape_javascript(render :partial => 'post_events/form', locals: locals ) %>');
 $('#post_close_button').html('<div class = "row pt-3">'+
                             '<div class = "col-md-4 offset-md-3">'+
                                 '<button type="button" class="btn btn-success" aria-label="Close" onclick = "close_event_section()">'+
-                                    'Close Window'+
+                                    'Close Event'+
                                 '</button>'+
                             '</div>'+
                             '</div>');
@@ -15,5 +22,5 @@ $('#post_event_datetimepicker').datetimepicker({
   sideBySide: true,
   ignoreReadonly: true
 });
-$("#event-section").css("width", "450px");
+
 bindSelect2EventInvite();

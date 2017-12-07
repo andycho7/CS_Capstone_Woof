@@ -5,7 +5,7 @@ $('.modal-title').text('Found dog event')*/
 
 var height_event_section = $("#map").css("height");
 
-
-$("#event-content").html('<%= escape_javascript(render :partial => 'found_dogs/show_found_dog_modal', :object => @found_dog) %>');
-$("#event-section").css("width", "450px");
-$("#event-section").css("height", height_event_section);
+$(".event-section").width("450");
+$(".event-content").width("420");
+$(".event-section").css("height", height_event_section);
+$(".event-content").html('<%= escape_javascript(render :partial => 'found_dogs/show_found_dog_modal', :object => @found_dog) %>');
