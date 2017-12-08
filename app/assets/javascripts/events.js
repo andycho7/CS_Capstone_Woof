@@ -521,7 +521,7 @@ $(document).on('turbolinks:load', function() {
     }
   });
   
-  $('body').on('dp.show', function (e) {
+  $('.event-section').on('dp.show', function (e) {
       var datepicker = $('body').find('.bootstrap-datetimepicker-widget:last'),
           position = datepicker.offset(),
           parent = datepicker.parent(),

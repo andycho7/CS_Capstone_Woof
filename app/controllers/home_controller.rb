@@ -3,9 +3,11 @@ class HomeController < ApplicationController
 
   # about the project
   def about
+    @user_profile = true
   end
 
   def about_team
+    @user_profile = true
   end
 
   def index
