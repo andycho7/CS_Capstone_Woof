@@ -24,7 +24,7 @@ function createMessageChannel() {
           // is parseInt required here?
           if(data.user_id == message_current_user_id)
           {
-            return "<div class = 'my-message-format rounded'><p><img class = 'rounded-circle' width = '50' height= '50' src = '" + data.message_user_image_url + "'>" + data.user + ": " + data.message + "</p></div>";
+            return "<div class = 'my-message-format rounded'><p style='margin: 5px 5px;'><img class = 'rounded-circle' width = '50' height= '50' src = '" + data.message_user_image_url + "'><strong style='margin: 0px 5px';>" + data.user + "</strong>" + data.message + "</p></div>";
           }
 
         }
@@ -33,7 +33,7 @@ function createMessageChannel() {
 
         }
 
-        return "<div class = 'other-message-format rounded'><p><img class = 'rounded-circle' width = '50' height = '50' src = '" + data.message_user_image_url + "'>" + data.user + ": " + data.message + "</p></div>";
+        return "<div class = 'other-message-format rounded'><p style='margin: 5px 5px;'><img class = 'rounded-circle' width = '50' height = '50' src = '" + data.message_user_image_url + "'><strong style='margin: 0px 5px';>" + data.user + "</strong>" + data.message + "</p></div>";
     },
   });
   return App.messages;

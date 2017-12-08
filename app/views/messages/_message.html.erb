@@ -3,12 +3,12 @@
 <% else %>
     <div class = 'other-message-format rounded'>
 <% end %>
-    <p>
+    <p style="margin: 5px 5px;">
         <% unless message.user.image.thumb.url.nil? %>
             <%= image_tag message.user.image.thumb.url, class: "rounded-circle", width: 50, height: 50 %>
         <% else %>
             <%= image_tag 'user_placeholder', class: "rounded-circle", width: 50, height: 50 %>
         <% end %>
-        <%= message.user.first_name %>: <%=message.content%>
+        <strong style="margin: 0px 5px;"><%= message.user.first_name %></strong> <%=message.content%>
     </p>
 </div>
