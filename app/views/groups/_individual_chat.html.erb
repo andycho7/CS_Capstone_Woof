@@ -22,7 +22,7 @@
           <div id="messages">
           </div>
         <% end %>
-        <div id = 'myMessages'>
+        <div id = 'myMessages' style="margin-top: 5px;">
           <%=form_for message, remote: true,authenticity_token: true do |f|%>
             <%= f.text_area :content, data: {textarea: "message"}, class: 'form-control' %>
             <%= f.hidden_field :chat_id, value: chat.id %>

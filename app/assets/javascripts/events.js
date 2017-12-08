@@ -353,15 +353,15 @@ function draw_marker(data)
   if(data.event_type == 'LostDog' )
   {
    // link = "<a href='/lost_dogs/"+data.event_id+"' class='btn btn-primary' data-toggle='modal' data-target=" + "'#eventModel' data-remote = 'true'>More Details</a>";
-    link = "<a onclick = 'panMap("+marker.position.lat()+","+marker.position.lng()+")' href='/lost_dogs/" + data.event_id + "' class='list-group-item list-group-item-action list-group-item-info' data-toggle='modal' data-target=" + "'#eventModel' data-remote = 'true'>More Details</a></div>";
+    link = "<a onclick = 'panMap("+marker.position.lat()+","+marker.position.lng()+")' href='/lost_dogs/" + data.event_id + "' class='list-group-item list-group-item-action' data-toggle='modal' data-target=" + "'#eventModel' data-remote = 'true'>More Details</a></div>";
   }
   else if(data.event_type == 'FoundDog')
   {
-    link = "<a onclick = 'panMap("+marker.position.lat()+","+marker.position.lng()+")' href='/found_dogs/" + data.event_id + "' class='list-group-item list-group-item-action list-group-item-info' data-toggle='modal' data-target=" + "'#eventModel' data-remote = 'true'>More Details</a></div>";    
+    link = "<a onclick = 'panMap("+marker.position.lat()+","+marker.position.lng()+")' href='/found_dogs/" + data.event_id + "' class='list-group-item list-group-item-action' data-toggle='modal' data-target=" + "'#eventModel' data-remote = 'true'>More Details</a></div>";    
   }
   else if(data.event_type == 'PostEvent')   // This needs to be given more thought.
   {
-    link = "<a onclick = 'panMap("+marker.position.lat()+","+marker.position.lng()+")' href='/post_events/"+data.event_id+"' class='list-group-item list-group-item-action list-group-item-info' data-toggle='modal' data-target=" + "'#eventModel' data-remote = 'true'>More Details</a></div>";
+    link = "<a onclick = 'panMap("+marker.position.lat()+","+marker.position.lng()+")' href='/post_events/"+data.event_id+"' class='list-group-item list-group-item-action' data-toggle='modal' data-target=" + "'#eventModel' data-remote = 'true'>More Details</a></div>";
   }
 
   contentString = contentString + link;
@@ -520,6 +520,33 @@ $(document).on('turbolinks:load', function() {
      found_dog_table = null;
     }
   });
+  
+  $('body').on('dp.show', function (e) {
+      var datepicker = $('body').find('.bootstrap-datetimepicker-widget:last'),
+          position = datepicker.offset(),
+          parent = datepicker.parent(),
+          parentPos = parent.offset(),
+          width = datepicker.width(),
+          parentWid = parent.width();
+
+      // move datepicker to the exact same place it was but attached to body
+      datepicker.appendTo('body');
+      datepicker.css({
+          position: 'absolute',
+          top: position.top,
+          bottom: 'auto',
+          left: position.left,
+          right: 'auto'
+      });
+
+      // if datepicker is wider than the thing it is attached to then move it so the centers line up
+      if (parentPos.left + parentWid < position.left + width) {
+          var newLeft = parentPos.left;
+          newLeft += parentWid / 2;
+          newLeft -= width / 2;
+          datepicker.css({left: newLeft});
+      }
+  })
 });
 
 function close_event_section()

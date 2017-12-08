@@ -22,48 +22,58 @@
 
                     </div>
                     <div class = 'col-sm-6' style = "border-left: 3px solid green;">
-                        <div class = 'form-group row sign-up-form-elements'>
-                            <% if !flash.empty? %>
-                                <% if !flash['signUpError'].nil? and !flash['signUpError']['first_name'].nil? %>
-                                    <p class = 'alert-danger'>&nbsp;First Name <%= flash['signUpError']['first_name'][0] %></p>
-                                <% end %>
+                      
+                        <% if !flash['signUpError'].nil? and !flash['signUpError']['first_name'].nil? %>
+                          <% first_name_error = true %>
+                        <% end %>
+                        <% first_name = (flash['signUpErrorUser'] ? flash['signUpErrorUser']['first_name'] : nil) %>
+                        <div class = 'form-group row sign-up-form-elements <%= first_name_error ? "has-danger" : "" %>'>
+                            <%= f.text_field :first_name , :class => "form-control form-control-danger" , autofocus: true, :placeholder => "First Name", value: first_name %>
+                            <% if first_name_error %>
+                              <div class='form-control-feedback'><%= flash['signUpError']['first_name'][0] %></div>
                             <% end %>
-                            <%= f.text_field :first_name , :class => "form-control" , autofocus: true, :placeholder => "First Name" %>
-                        </div>
-                        <div class = 'form-group row sign-up-form-elements'>
-                            
-                            <% if !flash.empty? %>
-                                <% if !flash['signUpError'].nil? and !flash['signUpError']['last_name'].nil? %>
-                                    <p class = 'alert-danger' >&nbsp;Last Name <%= flash['signUpError']['last_name'][0] %></p>
-                                <% end %>
-                            <% end %>
-                            <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name" %>
-                        </div>
-
-                        <div class = 'form-group row sign-up-form-elements'>
-                            <% if !flash.empty? %>
-                                <% if !flash['signUpError'].nil? and !flash['signUpError']['email'].nil? %>
-                                    <p class = 'alert-danger'>&nbsp;Email <%= flash['signUpError']['email'][0] %>
-                                <% end %></p>
-                            <% end %>
-                            <%= f.email_field :email, :class => "form-control", :placeholder => "Email"%>
-                        </div>
-                        <div class = 'form-group row sign-up-form-elements'>
-                            <% if !flash.empty? %>
-                                <% if !flash['signUpError'].nil? and !flash['signUpError']['password'].nil? %>
-                                    <p class = 'alert-danger'>&nbsp;Password <%= flash['signUpError']['password'][0] %>
-                                <% end %></p>
-                            <% end %>
-                            <%= f.password_field :password, :class => "form-control", autocomplete:"off", :placeholder => "Password" %>
                         </div>
                         
-                        <div class = 'form-group row sign-up-form-elements'>
-                            <% if !flash.empty? %>
-                                <% if !flash['signUpError'].nil? and !flash['signUpError']['password_confirmation'].nil? %>
-                                    <p class = 'alert-danger'>&nbsp;Confirm Password: <%= flash['signUpError']['password_confirmation'][0] %></p>
-                                <% end %>
+                        <% if !flash['signUpError'].nil? and !flash['signUpError']['last_name'].nil? %>
+                          <% last_name_error = true %>
+                        <% end %>
+                        <% last_name = (flash['signUpErrorUser'] ? flash['signUpErrorUser']['last_name'] : nil) %>
+                        <div class = 'form-group row sign-up-form-elements <%= last_name_error ? "has-danger" : "" %>'>
+                            <%= f.text_field :last_name, :class => "form-control form-control-danger", :placeholder => "Last Name", value: last_name %>
+                            <% if last_name_error %>
+                              <div class='form-control-feedback'><%= flash['signUpError']['last_name'][0] %></div>
                             <% end %>
-                            <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %>
+                        </div>
+
+                        <% if !flash['signUpError'].nil? and !flash['signUpError']['email'].nil? %>
+                          <% email_error = true %>
+                        <% end %>
+                        <% email = (flash['signUpErrorUser'] ? flash['signUpErrorUser']['email'] : nil) %>
+                        <div class = 'form-group row sign-up-form-elements <%= email_error ? "has-danger" : "" %>'>
+                            <%= f.email_field :email, :class => "form-control form-control-danger", :placeholder => "Email", value: email %>
+                            <% if email_error %>
+                              <div class='form-control-feedback'><%= flash['signUpError']['email'][0] %></div>
+                            <% end %>
+                        </div>
+                        
+                        <% if !flash['signUpError'].nil? and !flash['signUpError']['password'].nil? %>
+                          <% password_error = true %>
+                        <% end %>
+                        <div class = 'form-group row sign-up-form-elements <%= password_error ? "has-danger" : "" %>'>
+                            <%= f.password_field :password, :class => "form-control form-control-danger", autocomplete:"off", :placeholder => "Password" %>
+                            <% if password_error %>
+                              <div class='form-control-feedback'>Password confirmation must be at least 6 characters long</div>
+                            <% end %>
+                        </div>
+                        
+                        <% if !flash['signUpError'].nil? and !flash['signUpError']['password_confirmation'].nil? %>
+                          <% password_confirmation_error = true %>
+                        <% end %>
+                        <div class = 'form-group row sign-up-form-elements <%= password_confirmation_error ? "has-danger" : "" %>'>
+                            <%= f.password_field :password_confirmation, :class => "form-control form-control-danger", :placeholder => "Confirm Password" %>
+                            <% if password_confirmation_error %>
+                              <div class='form-control-feedback'>Password confirmation must be at least 6 characters long</div>
+                            <% end %>
                         </div>
 
                         <div class = 'form-group row sign-up-form-elements'>
