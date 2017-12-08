@@ -117,7 +117,7 @@ class PostEventsController < ApplicationController
 
     def massage_date
       if params[:post_event][:date_time] && !params[:post_event][:date_time].empty?
-        params[:post_event][:date_time] = DateTime.strptime(params[:post_event][:date_time],"%m/%d/%Y %l:%M %p")
+        params[:post_event][:date_time] = DateTime.strptime(params[:post_event][:date_time],"%m/%d/%Y %l:%M %p").change(:offset => "-0700")
       end
     end
 end

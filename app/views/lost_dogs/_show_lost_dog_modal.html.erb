@@ -35,15 +35,15 @@
         <% if @lost_dog.user.id == current_user.id %>
             <div class = 'row' >
                 <div class = 'col-md-4'>
-                    <%= link_to 'Edit Event', edit_lost_dog_path(@lost_dog.id), class: 'btn btn-primary float-right', data: {:remote => true, 'data-toggle' => 'modal', 'data-target'=>'#eventModal'} %>
+                    <%= link_to 'Edit Event', edit_lost_dog_path(@lost_dog.id), class: 'btn btn-primary btn-sm float-right', data: {:remote => true, 'data-toggle' => 'modal', 'data-target'=>'#eventModal'} %>
                 </div>
 
                 <div class = 'col-md-4' style="text-align:center;">
-                    <%= link_to 'Delete Event', @lost_dog, method: :delete, class: 'btn btn-danger', data: { remote: true, confirm: 'Are you sure? '} %>
+                    <%= link_to 'Delete Event', @lost_dog, method: :delete, class: 'btn btn-danger btn-sm', data: { remote: true, confirm: 'Are you sure? '} %>
                 </div>
 
                 <div class = 'col-md-4'>
-                    <%= button_tag 'Close Event', 'aria-label': 'Close', class: 'btn btn-secondary float-left', type: 'button', onclick: 'close_event_section()' %>
+                    <%= button_tag 'Close Event', 'aria-label': 'Close', class: 'btn btn-secondary btn-sm float-left', type: 'button', onclick: 'close_event_section()' %>
                 </div>
 
             </div>

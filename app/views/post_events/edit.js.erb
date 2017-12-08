@@ -18,10 +18,10 @@ $('#post_close_button').html('<div class = "row pt-3">'+
                                 '</button>'+
                             '</div>'+
                             '</div>');
+$('#post_event_datetimepicker').parent().css('position', 'relative');
 $('#post_event_datetimepicker').datetimepicker({
   sideBySide: true,
-  ignoreReadonly: true,
-  inline: true
+  ignoreReadonly: true
 });
 
 bindSelect2EventInvite();
