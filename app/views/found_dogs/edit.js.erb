@@ -12,8 +12,8 @@ $(".event-section").css("height", height_event_section);
 $(".event-content").html('<%= escape_javascript(render :partial => 'found_dogs/form', locals: {found_dog: @found_dog, path: found_dog_path(@found_dog.id), weight_options: Weight.all, button_name: "Update the Found Dog Event"} ) %>');
 
 $('#found_close_button').html('<div class = "row pt-3">'+
-                            '<div class = "col-md-4 offset-md-3">'+
-                                '<button type="button" class="btn btn-success" aria-label="Close" onclick = "close_event_section()">'+
+                            '<div class = "col-md-12">'+
+                                '<button type="button" class="btn btn-secondary float-left" aria-label="Close" onclick = "close_event_section()">'+
                                     'Close Event'+
                                 '</button>'+
                             '</div>'+
