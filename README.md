@@ -60,11 +60,26 @@ In your rails app directory, run the database migration
 * `$ rails db:create`  
 * `$ rails db:migrate`  
 ## Environment variables  
-We are using `dotenv` to load environment variables from the `.env` file in your directory. Make sure that the `.env` file exists. Credentials for the database are expected in the `config/database.yml` file. We will eventually add secret credentials for production. 
+We are using `dotenv` to load environment variables from the `.env` file in your directory. Make sure that the `.env` file exists. Credentials for the database are expected in the `config/database.yml` file. We will eventually add secret credentials for production.
+```bash
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+SECRET_KEY_BASE=
+EMAIL_USERNAME=
+EMAIL_PASSWORD=
+PROD_HOST='https://www.mywoofapp.com'
+DEV_HOST='localhost:3000'
+APN_GATEWAY_URI='gateway.sandbox.push.apple.com'
+APN_CERTIFICATE='./apple_push_notification_dev.pem'
+APN_CERTIFICATE_PASSPHRASE=
+FEEDBACK_EMAIL_CC=comma,separated,email,list
+ACTION_CABLE_HOST=mywoofapp.com
+```
 ## Authentication 
 I did something really bad and set SSL to not verify `config/application.rb`. REMOVE THIS LINE BEFORE DEPLOYING. 
 #### db commands  
-* `$ rails db:drop && rails db:create && rails db:migrate && rails db:seed` I've had problems reseting the db so I've used this command
+* `$ rails db:drop db:create db:migrate db:seed`
 * `$ rails db:migrate` runs (single) migrations that have not run yet.  
 * `$ rails db:create` creates the database  
 * `$ rails db:drop` deletes the database  
@@ -98,10 +113,14 @@ $ rails -v
 Rails 5.0.2
 ```  
 * System dependencies
-
-## How to run the test suite
+- imagemagick (library for image manipulation)
 
 ## Services (job queues, cache servers, search engines, etc.)
 
+- Redis Server
+`$ redis-server`
+- Resque
+***from the main directory run
+`$ PIDFILE=./resque.pid BACKGROUND=yes RAILS_ENV=production QUEUE=mailers bundle exec rake resque:work`
 ## Deployment instructions
 
