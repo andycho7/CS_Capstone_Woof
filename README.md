@@ -117,10 +117,10 @@ Rails 5.0.2
 
 ## Services (job queues, cache servers, search engines, etc.)
 
-- Redis Server
+- [Redis Server](https://redis.io/)   
 `$ redis-server`
-- Resque
-***from the main directory run
+- [Resque](https://github.com/resque/resque)   
+From the main directory run    
 `$ PIDFILE=./resque.pid BACKGROUND=yes RAILS_ENV=production QUEUE=mailers bundle exec rake resque:work`
-## Deployment instructions
+
 
