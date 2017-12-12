@@ -108,6 +108,7 @@ Rails.application.routes.draw do
   get 'home/sign_out_profile'
   get '/about', controller: :home, action: :about
   get '/about_team', controller: :home, action: :about_team
+  get '/user_tutorial', controller: :home, action: :user_tutorial
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
