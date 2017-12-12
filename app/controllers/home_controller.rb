@@ -1,9 +1,12 @@
 class HomeController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :about, :about_team]
+  skip_before_action :authenticate_user!, only: [:index, :about, :about_team, :user_tutorial]
 
   # about the project
   def about
     @user_profile = true
+  end
+
+  def user_tutorial
   end
 
   def about_team
