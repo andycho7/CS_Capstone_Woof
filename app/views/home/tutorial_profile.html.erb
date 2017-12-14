@@ -1,16 +1,31 @@
-<h3>View User Profile</h3>
-You can view your personal information by following the link to ‘User Profile’ page
-<%= image_tag 'web_screenshots/user_profile.png', style: 'height:550px; width:auto;' %><br>
-The user profile page also some interesting stats of your activity with the application
-
-<h3>Edit User Profile</h3>
-From the user profile page, you can edit your basic personal information by clicking the button ‘Edit Profile’
-<%= image_tag 'web_screenshots/user_profile_edit.png', style: 'height: 550px; width: auto;' %><br>
-This is where you can make your account private or change your profile photo
-Don’t forget to save your changes
-<%= image_tag 'web_screenshots/user_profile_updated.png', style: 'height: 550px; width: auto;' %>
-
-<h3>Change Password</h3>
-From the user profile page or edit user profile page, you can change your password to Woof by clicking the button   ‘Edit Profile’.
-You’ll need to confirm your existing password in the first line<br>
-<%= image_tag 'web_screenshots/change_password.png', style: 'height: 550px; width: auto;' %>
+<div class = 'row'>
+    <div class = 'col-md-9 offset-md-1 tutorial-home rounded'>
+        
+        <p>
+            <h3>1. View User Profile</h3>
+            <hr class = 'my-4'>
+            You can view your personal information by following the link to ‘User Profile’ page.
+            The user profile page has some interesting stats of your activity with the application 
+        </p>
+        <%= image_tag 'web_screenshots/user_profile.png', style: 'height:550px; width:auto;', class: 'img-thumbnail' 
+        %><br>
+        <p>
+            <h3>2. Edit User Profile</h3>
+            <hr class = 'my-4'>
+            From the user profile page, you can edit your basic personal information by clicking the button ‘Edit Profile’
+        </p>
+        <%= image_tag 'web_screenshots/user_profile_edit.png', style: 'height: 550px; width: auto;', class: 'img-thumbnail' %><br>
+        <p>
+            This is where you can make your account private or change your profile photo.
+            Don’t forget to save your changes
+        </p>
+        <%= image_tag 'web_screenshots/user_profile_updated.png', style: 'height: 550px; width: auto;', class: 'img-thumbnail'%>
+        <p>
+            <h3>3. Change Password</h3>
+            <hr class = 'my-4'>
+            From the user profile page or edit user profile page, you can change your password to this app by clicking the button ‘Change Password’.
+            You’ll need to confirm your existing password in the first line<br>
+        </p>
+        <%= image_tag 'web_screenshots/change_password.png', style: 'height: 550px; width: auto;', class: 'img-thumbnail' %>
+    </div>
+</div>
