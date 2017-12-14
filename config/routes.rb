@@ -109,6 +109,19 @@ Rails.application.routes.draw do
   get '/about', controller: :home, action: :about
   get '/about_team', controller: :home, action: :about_team
   get '/user_tutorial', controller: :home, action: :user_tutorial
+  get '/user_tutorial/profile', controller: :home, action: :tutorial_profile
+  get '/user_tutorial/groups_pets', controller: :home, action: :tutorial_groups_pets
+  get '/user_tutorial/lost_and_found', controller: :home, action: :tutorial_lost_and_found
+  get '/user_tutorial/event_invitations', controller: :home, action: :tutorial_event_invitations
+  get '/user_tutorial/sign_up', controller: :home, action: :tutorial_sign_up
+  get '/user_tutorial/group_chats', controller: :home, action: :tutorial_group_chats
+  get '/user_tutorial/event_basics', controller: :home, action: :tutorial_event_basics
+
+  get '/user_tutorial/ios_sign_in', controller: :home, action: :tutorial_ios_sign_in
+  get '/user_tutorial/ios_groups', controller: :home, action: :tutorial_ios_groups
+  get '/user_tutorial/ios_feeding', controller: :home, action: :tutorial_ios_feeding
+  get '/user_tutorial/ios_nudge_group', controller: :home, action: :tutorial_ios_nudge_group
+  get '/user_tutorial/ios_aroundme', controller: :home, action: :tutorial_ios_aroundme
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'

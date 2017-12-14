@@ -1,1 +1,26 @@
-Hello here is going to be the user tutorial guide
+<div class = 'container-fluid'>
+    <div class = 'row'>
+        <div class = 'col-md-10'>
+            <h1>User Tutorial</h1>
+            <h3>Website</h3>
+            <ul class = 'list-group'>
+                <%= link_to 'Sign Up/Sign In', user_tutorial_sign_up_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'User Profile Page', user_tutorial_profile_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Pet/Group Creation and User invitation', user_tutorial_groups_pets_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Group Chat functionality', user_tutorial_group_chats_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Creating/Viewing/Editing events', user_tutorial_event_basics_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Lost and Found Dog link page', user_tutorial_lost_and_found_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Around Me Events - public,private,chat functionality', user_tutorial_event_invitations_path, class: 'list-group-item list-group-item-action' %>
+            </ul>
+
+            <h3>iOS application</h3>
+            <ul class = 'list-group pb-5'>
+                <%= link_to 'Sign In', user_tutorial_ios_sign_in_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Groups and Pets', user_tutorial_ios_groups_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Around Me', user_tutorial_ios_aroundme_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Feeding Feature', user_tutorial_ios_feeding_path, class: 'list-group-item list-group-item-action' %>
+                <%= link_to 'Nudge my Group', user_tutorial_ios_nudge_group_path, class: 'list-group-item list-group-item-action' %>                
+            </ul>
+        </div>
+    </div>
+</div>
